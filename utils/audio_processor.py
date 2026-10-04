@@ -8,8 +8,9 @@ import os
 Download="downloads"
 os.makedirs(Download,exist_ok=True)
 
-def download_youtube_audio(url:str) -> str:
-    output_path = os.path.join(Download,"%(title)s.%(ext)s")
+def download_youtube_audio(url: str) -> str:
+    output_path = os.path.join(Download, "%(title)s.%(ext)s")
+
     ydl_opts = {
         "format": "bestaudio/best",
         "outtmpl": output_path,
@@ -22,10 +23,17 @@ def download_youtube_audio(url:str) -> str:
         ],
         "quiet": True,
     }
+
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
-        filename = ydl.prepare_filename(info)
-    return filename
+
+        # Original downloaded filename
+        prepared_path = ydl.prepare_filename(info)
+
+        # FFmpeg converts it to WAV
+        wav_path = os.path.splitext(prepared_path)[0] + ".wav"
+
+    return wav_path
 
 def convert_to_wav(input_path:str) -> str:
     """Convert any audio/video file to WAV format using pydub."""

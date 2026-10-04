@@ -18,8 +18,8 @@ def build_vector_store(transcript : str)->Chroma:
     print("Building vector Store")
 
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size = 500,
-        chunk_overlap = 50
+        chunk_size = 1000,
+        chunk_overlap = 200
     )
     chunks = splitter.split_text(transcript)
 
@@ -50,7 +50,7 @@ def load_vector_store() ->Chroma:
 
     return vector_store
 
-def get_retriever(vector_store : Chroma, k :int = 4):
+def get_retriever(vector_store : Chroma, k :int = 6):
     return vector_store.as_retriever(
         search_type = 'similarity',
         search_kwargs = {"k":k}
