@@ -1,8 +1,33 @@
+# Environment variables / secrets
 .env
+
+# Python virtual environments
 .venv/
 venv/
-node_modules/
-target/
+
+# Python cache
 __pycache__/
-.DS_Store
+*.pyc
+
+# Node.js
+node_modules/
+
+# Java / Maven
+target/
+
+# IDE files
 .idea/
+
+# macOS
+.DS_Store
+
+# Generated audio/video files
+downloads/
+*.wav
+*.mp3
+*.mp4
+*.m4a
+*.webm
+
+# Vector database
+vector_db/
