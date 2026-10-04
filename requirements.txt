@@ -12,7 +12,7 @@ torch>=2.2.0                      # PyTorch backend for Whisper
 torchaudio>=2.2.0                 # Audio utilities for PyTorch
 
 # ── Translation (Hindi → English) ─────────────────────────────────────────────
-deep-translator>=1.11.4           # Lightweight translation wrapper (Google backend)
+deep-translator>=1.11.4           # Lightweightgit commit -m "Add audio processing pipeline" translation wrapper (Google backend)
 
 # ── LLM Orchestration — LangChain LCEL + Mistral ──────────────────────────────
 langchain>=0.2.0
